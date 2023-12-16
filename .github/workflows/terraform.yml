@@ -3,7 +3,7 @@ name: Deploy to Nginx with Docker
 on:
   push:
     branches:
-      - main
+      - master
 
 jobs:
   build:
