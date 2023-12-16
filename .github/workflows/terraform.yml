@@ -1,12 +1,22 @@
-name: example-workflow
-on: [push]
+name: Deploy to Nginx with Docker
+
+on:
+  push:
+    branches:
+      - main
+
 jobs:
-  production-deploy:
-    if: github.repository == 'octo-org/octo-repo-prod'
+  build:
+
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v3
-        with:
-          node-version: '14'
-      - run: npm install -g bats
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Build and push Docker image
+      uses: docker/build-push-action@v2
+      with:
+        context: .
+        push: true
+        tags: docker pull 12bk/users-microservices-ikeita
