@@ -1,22 +1,13 @@
-name: Deploy to Nginx with Docker
-
 on:
   push:
     branches:
       - master
+    tags:
+      - '*'
 
 jobs:
   build:
-
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
 
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v2
-
-    - name: Build and push Docker image
-      uses: docker/build-push-action@v2
-      with:
-        context: .
-        push: true
-        tags: docker pull 12bk/users-microservices-ikeita
+    - uses: btmc/github-action-docker-build@v1
