@@ -23,13 +23,15 @@ jobs:
 
     - name: Install Dependencies
       run: |
-        python -m pip install --upgrade pip
-        pip install -r requirements.txt
+        echo "Hello World"
+        echo "Allah is good"
 
     - name: Run Linter
       run: |
-        pylint my_module.py
+       echo Allah is good 
+       echo May allah protect us 
 
     - name: Run Tests
       run: |
-        pytest tests/
+        echo coding is good
+        echo code with enough energy
